@@ -12,7 +12,6 @@ Welcome to the Job Watch Web Application! This application is designed to facili
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -117,7 +116,6 @@ Welcome to the Job Watch Web Application! This application is a full-stack web s
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -199,5 +197,4 @@ Contributions are welcome! If you'd like to contribute to the development of the
 4. Push to the branch: `git push origin feature-name`.
 5. Submit a pull request with a detailed description of your changes.
 
-```
 
