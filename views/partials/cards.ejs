@@ -1,0 +1,84 @@
+<% if (locals.findP) { %>
+  
+  <div class="container">
+    <% findP.forEach(function(item, index) { %>
+      <% const dateCheck = item.Fetch_DT.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) %>
+      
+      <% if (index % 3 === 0) { %>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <% } %>
+        
+            <div class="col">
+              <div class="card h-100">
+                  <img src="<%= item.ImageURL %>" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title" style="color: red;"><%= item.Job_Role %></h5>
+                    <p class="card-text" style="font-weight: 900;"><%= item.Company_Name %></p>
+                    <p class="card-text" style="font-weight: bold;"><%= item.Job_location %></p>
+                    <% if (item.Avg_Sal_asper_role_and_comp) { %>
+                      <p class="card-text" style="font-weight: 500;">Salary : <span style="text-decoration: underline;"><%= item.Avg_Sal_asper_role_and_comp %> Lakhs</span></p>
+                    <% } %>
+                      <!-- <p class="card-text" style="font-weight: 500;">Salary : <span style="text-decoration: underline;"><%= item.Avg_Sal_asper_role_and_comp %></span><span style="text-decoration: underline;">
+                        <% if (item.Avg_Sal_asper_role_and_comp != "NaN") { %>
+                          Lakhs
+                        <% } %> -->
+                      </span></p>
+                      <% if (item.ownershipType) { %>
+                        <p class="card-text" style="font-weight: 500;">Ownership Type : <span style="text-decoration: underline;"><%= item.ownershipType %></span></p>
+                        <% } %>
+                        <p class="card-text"><%= item.JobDesc.substr(0, 150) %><a class="see-more" style="text-decoration: none;" href="<%= item.Job_link %>" target="_blank">...See more</a></p>
+
+                        <% if (item.Employee_count.length > 0 || (item.offices_loc.length > 0 || item.HQ_location.length > 0)) { %>
+                          <p class="newSeeMore" style="cursor: pointer; font-weight: 500;">More</p>
+                        <% } %>
+
+                        <div class="more">
+                            <p class="card-text" style="font-weight: 500;"><span><%= item.Company_rating %></span></p>
+                          <% if (item.Employee_count.length > 0) { %>
+                              <p class="card-text" style="font-weight: 500;">Employee : <span><%= item.Employee_count %></span></p>
+                          <% } %>
+                          <% if (item.offices_loc.length > 0) { %>
+                            <p class="card-text" style="font-weight: 500;">Office Location : <span><%= item.offices_loc %></span></p>
+                          <% } %>
+                          <% if (item.HQ_location.length > 0) { %>
+                            <p class="card-text" style="font-weight: 500;">Headquarter Location : <span><%= item.HQ_location %></span></p>
+                          <% } %>    
+                        </div>
+                        <a style="color: red;" href="<%= item.Job_link %>" target="_blank">Apply</a>
+                      </div>
+                      <div class="card-footer">
+                        <% if (item.founded_year) { %>
+                          <small class="text-muted">Founded: <%= item.founded_year %> year(s) ago</small>
+                        <% } %>
+                        <small class="text-muted">Last Updated: <%= dateCheck %></small>
+                      </div>
+
+
+
+                    </div>
+                    
+        </div>
+
+      <% if ((index + 1) % 3 === 0 || index === findP.length - 1) { %>
+      </div>
+      <% } %>
+
+      <script>
+        document.querySelectorAll(".newSeeMore").forEach((element, j) => {
+          element.addEventListener("click", () => {
+            const moreElement = element.nextElementSibling; // Access the next sibling of "newSeeMore", which is the element with the class "more"
+            moreElement.classList.add("more-active");
+            element.style.display = "none";
+          });
+
+        });
+      </script>
+
+    <% }) %>
+
+  </div>
+<% } else { %>
+  <p>No Data</p>
+<% } %>
+
+

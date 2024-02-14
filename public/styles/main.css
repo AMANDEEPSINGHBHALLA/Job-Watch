@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=REM&family=Roboto:wght@400;700&display=swap');
+
+body {
+    background-color: white;
+    /* background-image: linear-gradient(to right, rgb(255, 252, 252), rgb(246, 225, 225)); */
+}
+
+
+/* Splash Class */
+.splash{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    color: rgb(249, 246, 244);
+    background-image: linear-gradient(rgb(201, 201, 201), rgb(250, 250, 250));
+    background: cov;
+    z-index: 200;
+}
+.splash.display-none{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    color: antiquewhite;
+    z-index: -10;
+    transition: all 0.5s;
+}
+.splash-img-1 {
+    width: 20rem;
+}
+.splash-img-2 {
+    width: 10rem;
+}
+
+
+/* Drop Down Box */
+.drop_down{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    background-image: linear-gradient(rgb(204, 153, 153), rgb(65, 49, 49));
+    padding: 1.5rem;
+    position: absolute;
+    transform: translateY(-200px);
+    transition: transform 0.3s ease-in-out;
+    z-index: 10;
+}
+.drop_down img{
+    position: relative;
+    bottom: 4rem;
+    width: 1.5rem;
+}
+.drop_down_active{
+    transform: translateY(0);
+}
+.drop_down_ul{
+    list-style: none;
+    width: 100%;
+}
+.dd-home, .dd-search{
+    font-family: 'Tilt Neon', cursive;
+    font-size: 1.2rem;
+    background-color: rgb(0, 0, 0, 0);
+    border: none;
+    color: white;
+    margin: 0.5rem;
+    width: fit-content;
+    transition: 0.3s;
+}
+.dd-home.dd-search:hover{
+    background-color: black;
+    color: white;
+    transition: linear;
+}
+.drop_down_menu_button{
+    width: 2.5rem;
+    display: none;
+}
+
+/* Nav Bar */
+.header-nb{
+    overflow: hidden;
+    font-family: 'Tilt Neon', cursive;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-image: linear-gradient(rgb(137, 137, 137), rgb(242, 239, 239));
+}
+.nb-left{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.main-img{
+    margin: 0;
+    padding: 0;
+    height: 5rem;
+    transition: 0.5s;
+}
+.main-img:hover{
+    height: 6rem;
+}
+.header-nb-ul{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+}
+.header-nb-ul li a{
+    color: antiquewhite;
+    text-decoration: none;
+    padding: 1.5rem;
+    transition: 0.3s;
+}
+.header-nb-ul li a:hover{
+    background-color: black;
+    color: white;
+    transition: linear;
+}
+.nb-right{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.jaButton{
+    margin: 1.5rem 1rem;
+    padding: 0;
+    width: 8rem;
+    height: 2rem;
+    border: 0;
+    border-radius: 0.3rem;
+    transition: 0.5s;
+}
+.jaButton:hover{
+     background-color: black;
+     border-radius: 5rem;
+}
+
+
+.btn {
+    border: 0;
+    background-color: transparent;
+    color: black;
+}
+
+.btn-phone {
+    border: 0;
+    color: black;
+}
+
+.main {
+    padding: 1rem;
+}
+
+.row {
+    padding: 1rem;
+}
+
+.col {
+    transition: 0.5s;
+    border-radius: 1rem;
+}
+
+.card {
+    border-radius: 1rem;
+    overflow: hidden;
+    background-image: linear-gradient(to right, rgb(251, 250, 250), rgb(255, 255, 255));
+    border-color: rgb(0, 0, 0);
+    box-shadow: 0 0 30px rgba(245, 233, 233, 0.5);
+    perspective: 1000px;
+    /* z-index: -1; */
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+}
+
+
+.col:hover {
+    padding: 0;
+    box-shadow: 0 0 30px rgba(246, 78, 78, 0.5);
+}
+
+.more {
+    display: none;
+    transition:  0.3s ease-in-out;
+}
+
+.more-active {
+    display: block;
+}
+
+
+
+  
+
+.card-img-top {
+    width: 7rem;
+    height: 7rem;
+}
+
+
+
+
+
+.dataVisualization {
+    top: 0;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 1.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(251, 103, 103, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
+    transform: translateY(-5000px);
+    transition: transform 0.5s ease-in-out;
+}
+.dataVisualization img {
+    margin-top: 0.5rem;
+    width: 1.5rem;
+}
+.dataVisualization-active {
+    transform: translateY(0);
+}
+
+  
+
+
+
+@media only screen and (max-width: 700px) {
+    .header-nb-ul{
+        display: none;
+    }
+    .try-for-free, .sign-in-a{
+        display: none;
+    }
+    .drop_down_menu_button{
+        display: block;
+        margin: 0 1rem;
+    }
+
+
+}
