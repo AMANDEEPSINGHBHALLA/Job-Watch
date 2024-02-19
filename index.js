@@ -5,7 +5,7 @@ import { fileURLToPath } from "url";
 import mongoose from "mongoose";
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 4000;
 
 //Date
 const currentDate = new Date();
