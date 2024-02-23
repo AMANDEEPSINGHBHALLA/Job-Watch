@@ -11,7 +11,7 @@ const port = process.env.PORT || 4000;
 const currentDate = new Date();
 const formattedCurrentDate = currentDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 const previousDate = new Date(currentDate);
-previousDate.setDate(currentDate.getDate() - 1);
+previousDate.setDate(currentDate.getDate() - 3);
 const formattedPreviousDate = previousDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 
 
