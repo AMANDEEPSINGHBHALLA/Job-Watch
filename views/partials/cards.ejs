@@ -1,0 +1,190 @@
+<% if (locals.findP.length > 0) { %>
+
+    <div class="container">
+                <% findP.forEach(function(item, index) { %>
+                    <% const dateCheck = item.Fetch_DT.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) %>
+
+                        <% if (index % 3 === 0) { %>
+                            <div class="row row-cols-1 row-cols-md-3 g-4">
+                            <% } %>
+
+                            <div class="col">
+                                <% let salary = false; %>
+                                    <% let rating = false; %>
+                                        <% let empCount = false; %>
+
+                                            <% if (item.Avg_Sal_asper_role_and_comp >= 8) { %>
+                                                <% salary = true; %><% } %>
+
+                                                <% if (item.Company_rating >= 3.5) { %>
+                                                    <% rating = true; %><% } %>
+
+                                                    <% if (item.Employee_Count) { %>
+                                                        <% if (item.Employee_Count.substr(1, 2) === "0k" || (item.Employee_Count.substr(2, 4) === "Lakh" || item.Employee_Count.substr(3, 5) === "Lakh")) { %>
+                                                            <% empCount = true; %><% } %>
+                                                        <% } %>
+
+                                                        <div
+                                                            class="card h-100"
+                                                            <% if (salary && (empCount && rating)) { %>
+                                                            style="border-color: red; box-shadow: inset 0 0 18px rgba(3, 35, 244, 0.5);"
+                                                            <% } %>>
+                                                            <img src="<%= item.ImageURL %>" class="card-img-top" alt="...">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title" style="color: red;"><%= item.Job_Role %></h5>
+
+                                                                <div
+                                                                    class="company_salary"
+                                                                    style="display: flex; flex-direction: row; justify-content: space-between; margin: 0.5rem 0;">
+                                                                    <% if (item.Website_Link.length > 0) { %>
+                                                                        <p class="card-text" style="font-weight: 900;">
+                                                                            <a
+                                                                                style="text-decoration: none;"
+                                                                                href="https://<%= item.Website_Link %>"
+                                                                                target="_blank"><%= item.Company_Name %></a>
+                                                                        </p>
+                                                                    <% } else { %>
+                                                                        <p class="card-text" style="font-weight: 900;"><%= item.Company_Name %></p>
+                                                                    <% } %>
+
+                                                                    <% if (item.Company_rating > 0) { %>
+                                                                        <p class="card-text" style="font-weight: 500;">
+                                                                            <span><%= item.Company_rating %></span>⭐</p>
+                                                                    <% } %>
+                                                                </div>
+
+                                                                <p class="card-text" style="font-weight: bold;"><%= item.Job_location %></p>
+                                                                <% if (item.Avg_Sal_asper_role_and_comp) { %>
+                                                                    <p class="card-text" style="font-weight: 500;">Salary :
+                                                                        <span style="text-decoration: underline;"><%= item.Avg_Sal_asper_role_and_comp %>
+                                                                            Lakhs</span></p>
+                                                                <% } else { %>
+                                                                    <p class="card-text" style="font-weight: 500;">Salary :
+                                                                        <span style="color: rgb(2, 221, 188);">Not disclosed</span></p>
+                                                                <% } %>
+
+                                                                <% if (item.Ownership_Type) { %>
+                                                                    <p class="card-text" style="font-weight: 500;">Ownership Type :
+                                                                        <span style="text-decoration: underline;"><%= item.Ownership_Type %></span></p>
+                                                                <% } else { %>
+                                                                    <p class="card-text" style="font-weight: 500;">Ownership Type :
+                                                                        <span style="color: rgb(2, 221, 188);">Data unavailable</span></p>
+                                                                <% } %>
+
+                                                                <p class="card-text"><%= item.JobDesc.substr(0, 100) %>
+                                                                    <a
+                                                                        class="see-more"
+                                                                        style="text-decoration: none;"
+                                                                        href="<%= item.Job_link %>"
+                                                                        target="_blank">...See more</a>
+                                                                </p>
+
+                                                                <% if (item.Employee_Count || (item.Offices_Location.length > 0 || item.HQ_Location)) { %>
+                                                                    <p class="newSeeMore" style="cursor: pointer; text-align: center;">More🔻</p>
+                                                                <% } %>
+
+                                                                <div class="more">
+                                                                    <% if (item.Employee_Count) { %>
+                                                                        <p class="card-text" style="font-weight: 500;">Employee :
+                                                                            <span><%= item.Employee_Count %></span></p>
+                                                                    <% } %>
+                                                                    <% if (item.Offices_Location.length > 0) { %>
+                                                                        <p class="card-text" style="font-weight: 500;">Office Location :
+                                                                            <span><%= item.Offices_Location %></span></p>
+                                                                    <% } %>
+                                                                    <% if (item.HQ_Location) { %>
+                                                                        <p class="card-text" style="font-weight: 500;">Headquarter Location :
+                                                                            <span><%= item.HQ_Location %></span></p>
+                                                                    <% } %>
+                                                                </div>
+
+                                                                <a style="color: red;" href="<%= item.Job_link %>" target="_blank">Apply</a>
+
+                                                                <div class="icons" style="position: absolute; top: 0.5rem; right: 0.5rem;">
+                                                                    <% if (salary && (empCount && rating)) { %>
+                                                                        <p style="display: inline;">Best</p>
+                                                                        <img src="icons/best.png" alt="" style="height: 40px; width: 40px;">
+                                                                    <% } else { %>
+                                                                        <% if (salary) { %>
+                                                                            <img
+                                                                                src="icons/Money.png"
+                                                                                alt=""
+                                                                                style="height: 35px; width: 35px; box-shadow: 0 0 15px rgba(249, 112, 112, 0.5); border: 0.5px solid rgb(249, 118, 118); border-radius: 10px;">
+                                                                        <% } %>
+                                                                        <% if (rating) { %>
+                                                                            <img
+                                                                                src="icons/rating.png"
+                                                                                alt=""
+                                                                                style="height: 35px; width: 35px; box-shadow: 0 0 15px rgba(249, 112, 112, 0.5); border: 0.5px solid rgb(249, 118, 118); border-radius: 10px;">
+                                                                        <% } %>
+                                                                        <% if (empCount) { %>
+                                                                            <img
+                                                                                src="icons/employee.png"
+                                                                                alt=""
+                                                                                style="height: 35px; width: 35px; box-shadow: 0 0 15px rgba(249, 112, 112, 0.5); border: 0.5px solid rgb(249, 118, 118); border-radius: 10px;">
+                                                                        <% } %>
+                                                                    <% } %>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="card-footer">
+                                                                <% if (item.Founded_Year) { %>
+                                                                    <small class="text-muted">Founded:
+                                                                        <%= item.Founded_Year %></small>
+                                                                <% } %>
+                                                                <small class="text-muted">Last Updated:
+                                                                    <%= dateCheck %></small>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <% if ((index + 1) % 3 === 0 || index === findP.length - 1) { %>
+                                                    </div>
+                                                <% } %>
+
+                                                <script>
+                                                    document
+                                                        .querySelectorAll(".newSeeMore")
+                                                        .forEach((element, j) => {
+                                                            element.addEventListener("click", () => {
+                                                                const moreElement = element.nextElementSibling; // Access the next sibling of "newSeeMore", which is the element with the class "more"
+                                                                moreElement
+                                                                    .classList
+                                                                    .add("more-active");
+                                                                element.style.display = "none";
+                                                            });
+
+                                                        });
+                                                </script>
+
+                                                <% }) %>
+
+                                                </div>
+                                            <% } else { %>
+                                                <h3 style="text-align: center;">Sorry, no relevant job opportunities found at the moment.</h3>
+                                                <div class="row">
+                                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Explore More Jobs</h5>
+                                                                <h6 class="card-subtitle mb-2 text-muted">Find other opportunities</h6>
+                                                                <p class="card-text">Go back to homepage for more job listings and career opportunities.</p>
+                                                                <a href="/" class="btn btn-primary">Home Page</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Contact Us</h5>
+                                                                <h6 class="card-subtitle mb-2 text-muted">Get in touch with us</h6>
+                                                                <p class="card-text">Have questions or want to discuss collaboration
+                                                                    opportunities? Feel free to reach out to us!</p>
+                                                                <a href="mailto:contact.jobwatch@gmail.com" class="btn btn-primary">Email Us</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <% } %>
