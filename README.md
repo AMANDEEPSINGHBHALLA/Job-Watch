@@ -2,7 +2,7 @@
 
 **Job Watch** is a comprehensive web application built to streamline the job search process for tech professionals. It goes beyond traditional job boards by offering a potent combination of extensive job listings, insightful analytics, and personalized AI-powered recommendations.
 
-**Demo:** https://jobwatch.onrender.com/
+**Live:** https://jobwatch.onrender.com/
 
 ## Features
 
@@ -28,7 +28,7 @@
 
 1. Clone the repository: 
    ```bash
-   git clone https://github.com/your-username/Job-Watch.git 
+   git clone https://github.com/AMANDEEPSINGHBHALLA/Job-Watch.git 
    ```
 2. Navigate to the project directory: 
    ```bash
