@@ -38,21 +38,40 @@ Data Visualization: MongoDB Charts
 
 Installation
 
-Clone the repository: git clone https://github.com/your-username/Job-Watch.git
+Clone the repository:
 
-Navigate to the project directory: cd Job-Watch
+git clone https://github.com/your-username/Job-Watch.git
+content_copy
+Use code with caution.
+Bash
 
-Install dependencies: npm install
+Navigate to the project directory:
 
-Create a .env file in the root directory and add your MongoDB connection string as follows:
+cd Job-Watch
+content_copy
+Use code with caution.
+Bash
+
+Install dependencies:
+
+npm install
+content_copy
+Use code with caution.
+Bash
+
+Create a .env file in the root directory and add your MongoDB connection string and Google API Key as follows:
 
 MONGODB_URI=your_mongodb_connection_string
 GOOGLE_API_KEY=your_google_api_key
 content_copy
 Use code with caution.
 
-Start the development server: nodemon index.js
+Start the development server:
 
+nodemon index.js
+content_copy
+Use code with caution.
+Bash
 Usage
 
 Open your web browser and visit http://localhost:5000 (or the specified port in your setup).
