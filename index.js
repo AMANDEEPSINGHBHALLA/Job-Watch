@@ -9,7 +9,7 @@ import fs from "fs";
 import {GoogleGenerativeAI} from "@google/generative-ai";
 
 const app = express();
-// const port = 5000;
+const port = 3000;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -356,6 +356,6 @@ app.get("/AIx", (req, res) => {
     res.render("AI_two.ejs");
 });
 
-// app.listen(port, () => {
-//     console.log(`running on port ${port}`);
-// });
+app.listen(port, () => {
+    console.log(`running on port ${port}`);
+});
